@@ -8,7 +8,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "none": "10.x"
+    "none": "18.x"
   },
   "author": "feng",
   "license": "ISC",
