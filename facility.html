@@ -225,10 +225,10 @@
 	var $showImage = $('.fpmainPic'); 
 	// 滑鼠移到小圖中的某一個超連結時
 	$('.fpsmallPicGroup a').mouseover(function(){
-     // 把 #fpmainPic 的 src 改成被移到的超連結的位置
+  // 把 #fpmainPic 的 src 改成被移到的超連結的位置
 		$showImage.attr('src', $(this).attr('href'));
 	}).click(function(){
-		// 如果超連結被點擊時, 取消連結動作
+	// 如果超連結被點擊時, 取消連結動作
 		return false;
 	});
 });
@@ -237,8 +237,8 @@
   $(document).ready(function () {  
     $.ajax({
                 type: "get",
-                url: "http://localhost:3000/facility",
-                // data: JSON.stringify(dataToServer),
+                //url: "http://localhost:3000/facility",
+                // data: JSON.stringifyf(dataToServer),
                 contentType: "application/json",
                 success: function(e){
                       for(let i=0 ; i<4 ; i++){
