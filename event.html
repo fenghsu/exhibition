@@ -208,7 +208,6 @@
     const fetchImages = () => {
         axios.get(`https://stark-dusk-25808.herokuapp.com/epass?_page=${page}&_limit=${IMAGE_PER_PAGE}`)
             .then(res => {
-              console.log(res)
                 res.data.forEach(image => {
                     imageList.innerHTML += `<div class=row  >
       <li class="image-item"><img class="image" src=${image.url}></li>
