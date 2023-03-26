@@ -234,7 +234,7 @@
         "date":"01 Aug. 2019",
         "url": "https://img.onl/bxy999"
     } 
-],
+    ],
     "fCnt":[
         {
         "id":0,
@@ -254,5 +254,35 @@
         "equipt":"空間設備 ｜ 矮櫃 2 個、替換式布幕 1 台、閃光架 1 台、桌椅 2 組",
         "suit":"適用作品 ｜ 平面畫作、空間講座、棚內拍照"
         }
+    ],
+    "ecurrent":[
+        {
+            "id":0,
+            "titleimg":"https://img.onl/JNId3E",
+            "title":"MASKBOY",
+            "date":"2023.01.01 - 2022.02.01",
+            "author":"Abei Liu",
+            "authorimg":"https://img.onl/AOw8xM",
+            "content":"MASKBOY戴著面具的男孩是知名插畫家Abei在2014年末創造的新角色，送給每個人隨心所欲投射自我，在MASKBOY系列裡，只要是有生命的都會戴上面具，他是任何的生命體，他的個性是豐富且隨著面具背後生命而變化的。"
+        },
+        {
+            "id":1,
+            "titleimg":"https://img.onl/MdnWYT",
+            "title":"鬆弛愉快",
+            "date":"2023.01.10 - 2022.02.05",
+            "author":"小林一毅",
+            "authorimg":"https://img.onl/6qo5eX",
+            "content":"旅行，從期待與想像之中，就已經開始了....透過跨國共創，傳遞人們對於旅行的記憶與期待，並回應後疫情時代世人對於距離的想像與對移動熱切的渴望。"
+        },
+        {
+            "id":2,
+            "titleimg":"https://img.onl/IzC64C",
+            "title":"襪子與藝術",
+            "date":"2023.01.25 - 2022.02.15",
+            "author":"+10・加拾",
+            "authorimg":"https://img.onl/I6FmDR",
+            "content":"多樣性為＋10・加拾的創作主軸，體現於襪長、材質與織法。夏天巡遍太平洋物種，冬天包羅象形文字、樂聲、神話與時空旅行，想像力到得了的地方皆可織作系列概念。打開隱藏在海島冒險精神當中的玩心，而航至世界。"
+        }
     ]
+
 }

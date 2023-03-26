@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/pdf.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="pdf-content">
+            <div class="logo container py-2 border-bottom border-2 border-dark">
+                <img class="pdf-logo d-block mx-auto" src="./img/LOGO.png" alt="">
+            </div>
+            <div class="title container py-2 ">
+                <h4>申請表單</h4>
+            </div>
+            <div class="file container py-3 border-bottom border-2 ">
+                <h4>基本資料填寫</h4>
+                <table class="table table-striped-columns text-center col-8 border border-2 ">
+                    <tbody class="border">
+                      <tr class="border-bottom ">
+                        <th class="col-2 border-end " scope="row">姓名</th>
+                        <td class="col-4 "></td>
+                        <td class="col-2 border-start ">聯絡電話</td>
+                        <td class="col-4 border-start"></td>
+                      </tr>
+                      <tr class="border-bottom ">
+                        <th scope="row" class="border-end ">E-mail</th>
+                        <td></td>
+                        <td class="border-start  ">聯絡地址</td>
+                        <td class="border-start "></td>
+                      </tr>
+                      <tr class="border-bottom ">
+                        <th scope="row" class="border-end">租借時間</th>
+                        <td></td>
+                        <td class="border-start">空間編號</td>
+                        <td class="border-start"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="border-end">備註</th>
+                        <td colspan="3"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="explaination container py-3">
+                <h4>場刊預約說明</h4>
+                <br>
+                <h5>每日開放以下時段：｜11:00, 13:00, 15:00 ,17:00, 19:00｜</h5>
+                <br>
+                <h5>注意事項：</h5>
+                <h5>1. 因場地使用排程持續變動，請於欲參訪前一日（含）以上，來電預約，將由專人回信與您確認預約時段。</h5>
+                <h5>2. 一日期時段，僅開放一組預約，預約人數上限10人。</h5>
+                <h5>3. 進入本館參觀請全程配戴口罩，禁止飲食並配合量體溫與雙手消毒，符合規定方得入場參觀。</h5>
+            </div>
+            <div class="download container d-md-flex justify-content-end ">
+                <a type="button" class="btn btn-dark" href="javascript:print_html();" id="download_btn">下載此頁面</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script>
+        function add_iframe() {
+            var html_content = $('#pdf-content').html();
+            $("#download").contents().find("#wrapper").html(html_content);
+            setTimeout(function () {
+                $("#download").get(0).contentWindow.print_html();
+            }, 500)
+        }
+        function print_html() {
+             var pdf = new jsPDF('p', 'pt', 'a4');
+            // // 設置輸出比例 數值越大比列越小
+            pdf.internal.scaleFactor = 2;
+            var options = {
+                pagesplit: true, //設置是否自動分頁
+                "background": '#ffffff'   //如果導出的pdf為黑色背景，需要將導出的html模塊內容背景 設置成白色。
+            };
+            var printHtml = $('#download').get(0);   // 頁面某一個div裏面的內容，通過id獲取div內容
+            pdf.addHTML(printHtml, 15, 15,options, function () {
+                pdf.save('htmltopdf_.pdf');
+                parent.closeLoading();
+            });
+        }
+    </script>
+    
+</body>
+</html>
