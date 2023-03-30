@@ -3,10 +3,11 @@
     position: relative;
 }
 body{
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 .wrapper{
     overflow: hidden;
+    width: 100%;
 }
 
 /* Public version */
@@ -92,6 +93,8 @@ body{
 }
 .fpic .fpmainPic {    
     height: 60vh;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 5px 8px 10px;   
 }
 .fpic .fpsmallPicGroup{
    max-height: max-content;
@@ -110,7 +113,8 @@ body{
 .fpic .fpsmallPic{
     width: 180px;
     height: 120px;
-    background-color: rgba(0,0,0,0.4);
+    /* background-color: rgba(0,0,0,0.4); */
+    box-shadow:rgba(0, 0, 0, 0.15) 3px 5px 8px
 }
 @media(max-width:768px){
     .fpic .fpsmallPic{
