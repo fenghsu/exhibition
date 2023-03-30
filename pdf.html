@@ -75,15 +75,14 @@
         }
         function print_html() {
              var pdf = new jsPDF('p', 'pt', 'a4');
-            // // 設置輸出比例 數值越大比列越小
             pdf.internal.scaleFactor = 2;
             var options = {
-                pagesplit: true, //設置是否自動分頁
-                "background": '#ffffff'   //如果導出的pdf為黑色背景，需要將導出的html模塊內容背景 設置成白色。
+                pagesplit: true, 
+                "background": '#ffffff'  
             };
-            var printHtml = $('#download').get(0);   // 頁面某一個div裏面的內容，通過id獲取div內容
+            var printHtml = $('#download').get(0);  
             pdf.addHTML(printHtml, 15, 15,options, function () {
-                pdf.save('htmltopdf_.pdf');
+                pdf.save('定義空間表單_.pdf');
                 parent.closeLoading();
             });
         }
