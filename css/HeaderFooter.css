@@ -1,18 +1,12 @@
 #header {
   position: sticky;
-  height: 100px; 
   top:0;
-  padding: 10px 50px 10px 50px;
-  font-size: 18px;
-  color: rgb(0, 0, 0);
-
+  font-size: medium;
 }
 .logo{
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width:85px;
+  width:75px;
 }
+
 /* search-bar */
 .search-box {
   position: absolute;
@@ -22,8 +16,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50px;
   background-color: #ffffff;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -35,7 +29,7 @@
 .search-box .fa-search {
   color: #121212;
   font-size: 20px;
-  padding: 20px;
+  padding: 10px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -55,7 +49,7 @@
   outline: none;
 }
 .search-box.active {
-  width: 350px;
+  width: 250px;
   justify-content: space-between;
   padding-right: 20px;
 }
@@ -64,26 +58,46 @@
   border-left: 1px solid #c5c5c5;
   padding: 5px 10px;
 }
-.search-box.active .fa-search {
-  padding-right: 15px;
+
+@media (max-width:768px){
+  .search-box{
+    width: 30px;
+    height: 30px;
+  }
+  .search-box .fa-search{
+    font-size: 10px;
+    padding: 3px;
+  }
+  .search-box .search-bar {
+    font-size: 12px;
+  }
+  .search-box .search-bar::placeholder {
+    font-size: 8px;
+  }
+  .search-box.active{
+    width: 120px;
+    padding-right: 5px;
+  }
+  .search-box.active .fa-search{
+    padding: 5px;
+  }
 }
 
-/* footer */
 .nowrap{
 white-space:nowrap
 }
 
+/* menu */
 .menu{
 display: flex;
-justify-content: space-around;
 align-items: center;
+padding: 3vh;
 }
-
 .menu a{
 color:#000;
 text-decoration:none;
 position:relative;
-margin:2rem 1rem;
+margin:1rem 1rem;
 font-size:1rem;
 letter-spacing:4px;
 }
@@ -110,13 +124,11 @@ transform-origin:left;
 .menu a:hover::before{
 transform-origin:right;
 }
-
 .menu a:hover {
 color:#000; 
 text-decoration:none; 
 cursor:pointer;  
 }
-
 @media (max-width: 500px) {
 .menu a{
 font-size: 10px;
@@ -124,7 +136,7 @@ color:#000
 }
 }
 
-
+/* footer */
 .footer{
 background-color: black;
 }

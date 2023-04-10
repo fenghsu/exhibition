@@ -33,29 +33,29 @@
 <body>
   <div class="wrapper">
     <!-- 導覽列 -->
-    <div id="header">
-      <div class="col-md-6 text-center">
-        <div class="container">
-          <p class="menu">
+    <div id="header container">
+      <div class="row">
+      <div class="col-6">
+          <div class="menu">
             <a href="#" ><img src="img/LOGO.png" class="logo" alt="LOGO" ></a>
-            <a href="#" >展場介紹</a>
+            <a href="#">展場介紹</a>
             <a href="https://fenghsu.github.io/exhibition/event" >展覽介紹</a>
             <a href="#rent" >展場申請</a>
-          </p>
-        </div>
+          </div>      
       </div>
-            <div class="search-box col-md-6">
+        <div class="search-box col-4">
             <i class="fa fa-search"></i>
             <input type="text" class="search-bar" placeholder="請輸入關鍵字"> 
       </div>
+      </div>
     </div>
     <section>
-      <!-- Concept Start -->
-      <div class="fConcept">
-        <div class="fcContent">
-          <div class="fcText col-md-6">
-            <h3 class="fctext" style="margin-bottom:30px ;">跟著創作走入新空間</h3>
-            <h5 class="fctext">
+      <!-- concept Start -->
+      <div class="concept">
+        <div class="concept-img">
+          <div class="concept-cnt col-md-6">
+            <h3 class="concept-text" style="margin-bottom:30px ;">跟著創作走入新空間</h3>
+            <h5 class="concept-text">
               一個透過編輯概念<br>
               與各路人馬合作<br>
               出產各式形體與物件的定義空間<br>
@@ -65,28 +65,30 @@
           </div>
         </div>
       </div>
-      <!-- Pic Start -->
-      <div class="fpic givePadding">
+      <!-- Pic Start --> 
+        <div class="space give-padding col-sm-8 offset-sm-2 ">
         <h2 class="topic">空間介紹</h2>
-        <div class="container d-grid gap-3  ">
-          <div class="row ">
-            <div class="fpbtnGroup gap-1">
-              <button class="btnh" id="btn0">A 空間</button>
-              <button class="btnh" id="btn1">B 空間</button>
-              <button class="btnh" id="btn2">C 空間</button>
+        <div class="container d-grid gap-3">
+          <div class="row">
+            <div class="space-btngroup gap-1  ">
+              <button type="button" class="btn me-md-2 btn-sm-lg" id="btn0">A 空間</button>
+              <button type="button" class="btn  me-md-2 btn-sm-lg" id="btn1">B 空間</button>
+              <button type="button" class="btn btn-sm-lg" id="btn2">C 空間</button>
+            </div>
+          </div>
+          <div class="space-group row justify-content-between">
+            <div class="col-sm-8 col-12 space-mainpic me-auto">
+               <img src="./img/faria01.jpeg" class="space-bigpic img4">
+            </div>          
+            <div class="space-picright col-md-2">
+              <a class="img1" href="./img/faria01.jpeg"><img src="./img/faria01.jpeg" class="space-smallpic img1 "></a>
+              <a class="img2" href="./img/faria02.jpeg"><img src="./img/faria02.jpeg" class="space-smallpic img2"></a>
+              <a class="img3" href="./img/faria03.jpeg"><img src="./img/faria03.jpeg" class="space-smallpic img3"></a>
             </div>
           </div>
           <div class="row">
-            <img src="./img/faria01.jpeg" class="fpmainPic me-auto col-sm-12 col-md-9 img4">
-            <div class="fpsmallPicGroup col-sm-12 col-md-2">
-              <a class="img1" href="./img/faria01.jpeg"><img src="./img/faria01.jpeg" class="fpsmallPic img1 "></a>
-              <a class="img2" href="./img/faria02.jpeg"><img src="./img/faria02.jpeg" class="fpsmallPic img2"></a>
-              <a class="img3" href="./img/faria03.jpeg"><img src="./img/faria03.jpeg" class="fpsmallPic img3"></a>
-            </div>
-          </div>
-          <div class="row">
-            <h3 class="fppicCnt1"><span class="aria">A空間</span> ｜ 1F</h3>
-            <div id="fppicCnt2" class="fppicCnt2">
+            <h3 class="space-aria"><span class="aria">A空間</span> ｜ 1F</h3>
+            <div class="space-cnt">
               <h5 class="equipt">空間設備 ｜ 展板 5 張、折合櫃 10 個、指示架 3 隻、投影幕 1 台 </h5>
               <br>
               <h5 class="suit">適用作品 ｜ 平面畫作、作品展示、小型立體雕塑</h5>
@@ -95,11 +97,11 @@
         </div>
       </div>
       <!-- Rent Start -->
-      <div class="frent givePadding">
+      <div class="rent give-padding col-sm-10 offset-md-1">
         <h2 class="topic" id="rent">租借流程</h2>
-        <div class="container d-grid gap-5">
-          <div class="frConcept ">
-            <div class="frCntText col-md-6">
+        <div class="container">
+          <div class="rent-cnt row ">
+            <div class="rent-text col-md-8">
               <h4>步驟一 ｜ 來電查詢檔期 預約空間</h4>
               <h5>請撥打定義空間場地預約專線（02-1234567），查詢可預約檔期。</h5>
               <br>
@@ -115,11 +117,9 @@
               <h5>(1)確認場地復原無誤，並付清全數相關費用。</h5>
               <h5>(2)保證金於確認後7個工作日起全額退還。</h5>
             </div>
-            <div class="frCntBtn col-md-6">
-              <div class="rentbtn">
+            <div class="rent-btn col-md-2  col-sm-6 ">
                 <a href="https://fenghsu.github.io/exhibition/pdf">
-                  <input type="button" id="dlbtn" class="rentDownload btnh" value="前往表單頁面"></a>
-              </div>
+                  <input type="button" id="dlbtn" class="rent-download btn btn-sm-lg" value="前往表單頁面"></a>             
             </div>
           </div>
         </div>
@@ -130,8 +130,7 @@
     <br>
     <!-- 資訊欄 -->
     <div class="row">
-      <div class="col-6">
-        <span class="float-md-end mb-3 ms-md-3">
+      <div class="col-6" style="text-align: right;" >
           <h3 class="me-3 fw-bold">定義空間</h3>
           <p class="me-3">
             12:00pm - 06:00pm<br>
@@ -140,7 +139,6 @@
             104台北市中山區<br>
             中山路1巷10號
           </p>
-        </span>
       </div>
       <div class="col-6 border-start border-4 px-4 d-flex align-items-center">
         <div class="info">
@@ -185,8 +183,8 @@
   <!-- pic change -->
   <script>
     $(function () {
-      var $showImage = $('.fpmainPic');
-      $('.fpsmallPicGroup a').mouseover(function () {
+      var $showImage = $('.space-bigpic');
+      $('.space-picright a').mouseover(function () {
         $showImage.attr('src', $(this).attr('href'));
       }).click(function () {
         return false;

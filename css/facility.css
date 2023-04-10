@@ -11,25 +11,32 @@ body{
 }
 
 /* Public version */
-
-.givePadding{
+.give-padding{
   margin-top: 30px; 
   margin-bottom: 30px;
 }
 .topic{
     height: 8vh;
-    padding-left: 8%; 
-    margin: 30px 0;
     font-weight: bold;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
+.btn{
+    border-radius: 5px; 
+    background-color: black;
+    color: #fff;
+}
+.btn:hover{
+    color:black;
+    border: solid 2px black;
+    background-color: #fff;
+} 
 
 /* Concept */
-.fConcept{
-    padding-top: 60px;
+.concept{
+    margin-top: 30px;
 }
-.fcContent{
+.concept-img{
     background-image: 
     linear-gradient(to bottom, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.3)),url(../img/concept.jpeg);
     background-size: cover;
@@ -39,155 +46,96 @@ body{
     display: flex;
     align-items: center;
 }
-.fConcept .fcText {
+.concept .concept-cnt {
    display: block;
    text-align: left; 
    color: #dcdbdb;
    letter-spacing: 0.35em;
-   margin-left: 200px;
+   margin-left: 20vh;
 }  
-.fConcept .fctext{
+.concept .concept-text{
     line-height: 200%;
 }
 
-/* Pic */
-.fpic .fpbtnGroup{
-    display: flex;
-    justify-content:left;  
-    padding-left: 0px;
+/* Space */
+.space .space-btngroup{
+    padding: 0px;
 }
-.fpic button{
-    height: 50px;
-    width: 120px;
-    border-radius: 5px; 
-    background-color: black;
-    color: #fff;
-    margin: 0 10px;
-
-}
-@media (min-width:768px) and (max-width:991px){
-    .fpic button{
-        height:40px ;
-        width: 80px;
-        margin-right: 15px;
-        font-size: 12px;
-    }  
-}
-@media(max-width:768px){
-    .fpic button{
-        height:35px ;
-        width: 70px;
-        margin-right: 10px;
-        font-size: 12px; 
-    }
-}
-.fpic .row{
-    margin-left:8%;
-    margin-right:8% ;   
-}
-@media (max-width:991px){
-    .fpic .row{
-        margin-left:0;
-        margin-right:0 ; 
-    }  
-}
-.fpic .fpmainPic {    
-    height: 60vh;
+.space .space-mainpic {    
     padding: 0;
     box-shadow: rgba(0, 0, 0, 0.15) 5px 8px 10px;   
+    height: 400px;
 }
-.fpic .fpsmallPicGroup{
+@media (max-width:768px){
+    .space .space-mainpic{
+        width: 100%;
+    }
+}
+.space  .space-bigpic{
+   height: 400px;
+   width: 100%;
+}
+.space .space-picright{
    max-height: max-content;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
 }
 @media(max-width:768px){
-    .fpic .fpsmallPicGroup{
-       padding-left: 0;
-       margin-top: 30px;
+    .space .space-picright{
+       padding: 0 50px;
+       margin-top: 15px;
        flex-direction: row;
-       justify-content: left;
     }  
 }
-.fpic .fpsmallPic{
-    width: 180px;
-    height: 120px;
-    /* background-color: rgba(0,0,0,0.4); */
+.space .space-smallpic{
+    width: 100%;
+    height: 100px;
     box-shadow:rgba(0, 0, 0, 0.15) 3px 5px 8px
 }
-@media(max-width:768px){
-    .fpic .fpsmallPic{
-       width:75px;
-       height:50px; 
-       margin-right:30px ;
+@media (max-width:768px){
+    .space .space-smallpic{
+        height: 50px;
     }
 }
-.fpic .fpsmallPic:hover{
-    filter:brightness(65%); 
-    transform: scale(1.02);
+.space .space-smallpic:hover{
+    filter:brightness(50%); 
+    transform: scale(1.1);
 }
-
-.fpic .fppicCnt1{
+.space .space-aria{
     padding-bottom: 10px;
     font-weight: bold;
     text-align: center;
 }
-.fpic .fppicCnt2{
-    padding-left: 200px;
-}
-
-.fpic .fppicCnt2 h5{
-    padding-bottom: 10px;
-    text-align: left;
-    display: inline-block;
+.space .space-cnt{
+    justify-content: center;
+    text-align: center;
 }
 
 /* Rent */
-.frent .frConcept{
+.rent .rent-cnt{
     display: flex;
     flex-direction: row;
 }
-
-.frent .frCntText{  
+.rent .rent-text{  
     margin: 30px 8% ;
     text-align: left;
     line-height: 200%;
 }
-
-.frent .frCntText h4{
-    padding-bottom: 10px;
+.rent .rent-text h4{
+    line-height:150%;
 }
-
-.frent .frCntText h5{
-    padding-bottom: 10px;
+.rent .rent-text h5{
+    line-height: 150%;
 }
-
-.frent .frCntBtn{
-    position: relative;
-} 
-
-.frent .rentbtn{
-    position: absolute;
-    left: 100px;
-    bottom: 40px;
+.rent .rent-btn{
     display: flex;
     flex-direction: row;
+    align-items: end;
+    justify-content: center;
 }
 
-.frent .rentDownload{
-    height: 60px;
-    width: 150px;
-    border-radius: 5px; 
-    background-color: black;
-    color: #fff;
-    margin: 0 10px;
-}  
 
-.btnh:hover{
-    color:black;
-    border: solid 2px black;
-    background-color: #fff;
-} 
+
 
 

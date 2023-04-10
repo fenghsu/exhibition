@@ -35,37 +35,40 @@
 
 <body>
   <div class="wrapper">
-      <div id="header">
-        <div class="col-md-6 text-center">
-          <div class="container">
-            <p class="menu">
-              <a href="#" ><img src="img/LOGO.png" class="logo" alt="LOGO" ></a>
-              <a href="https://fenghsu.github.io/exhibition/facility" >展場介紹</a>
-              <a href="#" >展覽介紹</a>
-              <a href="#ePass" >歷年展覽</a>
-            </p>
-          </div>
-        </div>
-              <div class="search-box col-md-6">
-              <i class="fa fa-search"></i>
-              <input type="text" class="search-bar" placeholder="請輸入關鍵字"> 
-        </div>
+    <div id="header container">
+      <div class="row">
+      <div class="col-6">
+          <div class="menu">
+            <a href="#" ><img src="img/LOGO.png" class="logo" alt="LOGO" ></a>
+            <a href="#">展場介紹</a>
+            <a href="https://fenghsu.github.io/exhibition/event" >展覽介紹</a>
+            <a href="#rent" >展場申請</a>
+          </div>      
       </div>
+        <div class="search-box col-4">
+            <i class="fa fa-search"></i>
+            <input type="text" class="search-bar" placeholder="請輸入關鍵字"> 
+      </div>
+      </div>
+    </div>
     <!-- Current Start -->
-    <div class="eCurrent" id="app">
+    <div class="current" id="app">
+      <loading v-model:active="isLoading"
+    :can-cancel="true" 
+    :on-cancel="onCancel"
+    :is-full-page="fullPage"/></loading>
       <h2 class="topic">當期展覽</h2>
-
       <div class="container">
-        <ecurrent-modal :id="ecurrentId"></ecurrent-modal>
-        <div class="eCurrent-cnt" v-for="ecurrent in ecurrents" :key="ecurrent.id">
-          <img class="ecurrentPic" style="background-size: cover; background-position: center"
-            :style="{backgroundImage: `url( ${ecurrent.titleimg})`} " @click="openModal(ecurrent.id)">
-          <div class="row givePadding">
+        <current-modal :id="currentId"></current-modal>
+        <div class="current-cnt" v-for="current in currents" :key="current.id">
+          <img class="current-pic" style="background-size: cover; background-position: center"
+            :style="{backgroundImage: `url( ${current.titleimg})`} " @click="openModal(current.id)">
+          <div class="row give-padding">
             <div class="col-sm-8 col-md-10">
-              <h3 class="acurrentL">{{ ecurrent.title }} <span>{{ ecurrent.author }}</span></h3>
-              <h5>{{ ecurrent.date }}</h5>
+              <h3 class="current-left">{{ current.title }} <span>{{ current.author }}</span></h3>
+              <h5>{{ current.date }}</h5>
             </div>
-            <div class="acurrentR col-sm-4 col-md-2 ">
+            <div class="current-right col-sm-4 col-md-2 ">
               <h5>Exhibition</h5>
               <h5>個人展覽</h5>
             </div>
@@ -73,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="ePass" id="ePass">
+    <div class="pass" id="ePass">
       <h2 class="topic">歷年展覽</h2>
       <div class="image-container">
         <ul class="image-list">
@@ -86,8 +89,7 @@
     <br>
     <!-- 資訊欄 -->
     <div class="row">
-      <div class="col-6">
-        <span class="float-md-end mb-3 ms-md-3">
+      <div class="col-6" style="text-align: right;">
           <h3 class="me-3 fw-bold">定義空間</h3>
           <p class="me-3">
             12:00pm - 06:00pm<br>
@@ -96,7 +98,6 @@
             104台北市中山區<br>
             中山路1巷10號
           </p>
-        </span>
       </div>
       <div class="col-6 border-start border-4 px-4 d-flex align-items-center">
         <div class="info">
@@ -174,11 +175,14 @@
 
   <!-- axios script -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- vue loading -->
+  <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
 
   <!-- Vue -->
   <script type="module">
 
-    const ecurrentModal = {
+    const currentModal = {
       props:['id'],
       data() {
         return {
@@ -205,8 +209,9 @@
     const app = Vue.createApp({
       data() {
         return {
-          ecurrents: [],
-          ecurrentId:'',
+          isLoading: false,
+          currents: [],
+          currentId:'',
         }
       },
       methods: {
@@ -214,20 +219,25 @@
           axios.get(`https://stark-dusk-25808.herokuapp.com/ecurrent `)
             .then(res => {
               //console.log(res)
-              this.ecurrents = res.data
+              this.currents = res.data
             });
         },
         openModal(id){
-          this.ecurrentId = id;
+          this.currentId = id;
         }
       },
       mounted() {
         this.getEccurrent()
+        this.isLoading = true;
+        setTimeout(()=>{
+          this.isLoading= false
+        },4000)
       },
       components:{
-        ecurrentModal,
+        currentModal,
       }
     })
+    app.component("loading", VueLoading.Component);
     app.mount('#app')
 
 
