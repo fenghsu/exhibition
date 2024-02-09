@@ -53,16 +53,17 @@
     </div>
     <!-- Current Start -->
     <div class="current" id="app">
-      <loading v-model:active="isLoading"
+      <!-- <loading v-model:active="isLoading"
     :can-cancel="true" 
     :on-cancel="onCancel"
-    :is-full-page="fullPage"/></loading>
+    :is-full-page="fullPage"/></loading> -->
+
       <h2 class="topic">當期展覽</h2>
       <div class="container">
         <current-modal :id="currentId"></current-modal>
         <div class="current-cnt" v-for="current in currents" :key="current.id">
           <img class="current-pic" style="background-size: cover; background-position: center"
-            :style="{backgroundImage: `url( ${current.titleimg})`} " @click="openModal(current.id)">
+            :style="{ backgroundImage: `url( ${ current.titleimg} )`}" @click="openModal(current.id)">
           <div class="row give-padding">
             <div class="col-sm-8 col-md-10">
               <h3 class="current-left">{{ current.title }} <span>{{ current.author }}</span></h3>
@@ -78,11 +79,11 @@
     </div>
     <div class="pass" id="ePass">
       <h2 class="topic">歷年展覽</h2>
-      <div class="image-container">
+      <!-- <div class="image-container">
         <ul class="image-list">
         </ul>
         <div class="observer"></div>
-      </div>
+      </div> -->
     </div>
     <br>
     <hr>
@@ -124,6 +125,7 @@
       </footer>
     </div>
   </div>
+ <!-- Model -->
   <script type="text/x-template" id="currentModal">
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
     <div class="modal-dialog modal-xl" role="document">
@@ -152,7 +154,6 @@
         </div>
         <h5 class="body-bot py-3">{{tempCurrent.content}}</h5>
       </div>
-      <!-- col-sm-6 end -->
     </div>
   </div>
   </div>
@@ -177,7 +178,7 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- vue loading -->
   <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
 
   <!-- Vue -->
   <script type="module">
@@ -193,12 +194,16 @@
       template: "#currentModal",
       watch:{
         id(){
-          axios.get(`https://stark-dusk-25808.herokuapp.com/ecurrent/${this.id} `)
+          axios.get(`https://private-6b3570-exhibition3.apiary-mock.com/facility`)
+          // axios.get(`https://private-6b3570-exhibition3.apiary-mock.com/facility/${this.id} `)
             .then(res => {
-              //console.log(res)
+              console.log(res)
               this.tempCurrent = res.data
               this.modal.show()
-            });
+            })
+            .catch(
+              console.log(e)
+            )
         }
       },
       mounted(){
@@ -216,10 +221,10 @@
       },
       methods: {
         getEccurrent() {
-          axios.get(`https://stark-dusk-25808.herokuapp.com/ecurrent `)
+          axios.get(`https://private-6b3570-exhibition3.apiary-mock.com/event `)
             .then(res => {
-              //console.log(res)
-              this.currents = res.data
+              console.log(res.data) //get currentExhibition data it is a array
+              this.currents = res.data.currentExhibition
             });
         },
         openModal(id){
@@ -237,7 +242,7 @@
         currentModal,
       }
     })
-    app.component("loading", VueLoading.Component);
+    //app.component("loading", VueLoading.Component);
     app.mount('#app')
 
 
@@ -256,28 +261,28 @@
       threshold: 0
     };
 
-    // 載入圖片的函式
-    const fetchImages = () => {
-      axios.get(`https://stark-dusk-25808.herokuapp.com/epass?_page=${page}&_limit=${IMAGE_PER_PAGE}`)
-        .then(res => {
-          res.data.forEach(image => {
-            imageList.innerHTML += `<div class=row  >
-      <li class="image-item"><img class="image" src=${image.url}></li>
-      <li class="image-maincontent">${image.topic}</li>
-      <li class="image-content"> ${image.date}</li></div>
-    `
-          });
-          page += 1
-        });
-    };
-    const callback = ([entry]) => {
-      if (entry && entry.isIntersecting) {
-        fetchImages()
-      };
-    };
+    // // 載入圖片的函式
+    // const fetchImages = () => {
+    //   axios.get(`https://stark-dusk-25808.herokuapp.com/epass?_page=${page}&_limit=${IMAGE_PER_PAGE}`)
+    //     .then(res => {
+    //       res.data.forEach(image => {
+    //         imageList.innerHTML += `<div class=row  >
+    //   <li class="image-item"><img class="image" src=${image.url}></li>
+    //   <li class="image-maincontent">${image.topic}</li>
+    //   <li class="image-content"> ${image.date}</li></div>
+    // `
+    //       });
+    //       page += 1
+    //     });
+    // };
+    // const callback = ([entry]) => {
+    //   if (entry && entry.isIntersecting) {
+    //     fetchImages()
+    //   };
+    // };
 
-    let observer = new IntersectionObserver(callback, options);
-    observer.observe(loadingObserver)
+    // let observer = new IntersectionObserver(callback, options);
+    // observer.observe(loadingObserver)
   </script>
 </body>
 

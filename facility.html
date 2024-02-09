@@ -195,7 +195,7 @@
     $(document).ready(function () {
       $.ajax({
         type: "get",
-        url: "https://stark-dusk-25808.herokuapp.com/fCnt",
+        url: "https://private-6b3570-exhibition3.apiary-mock.com/facility",
         contentType: "application/json",
         success: function (e) {
           for (let i = 0; i < 4; i++) {
@@ -207,9 +207,9 @@
               $(".img2").attr('href', `./img/faria${i}2.jpeg`);
               $(".img3").attr('src', `./img/faria${i}3.jpeg`);
               $(".img3").attr('href', `./img/faria${i}3.jpeg`);
-              $(".aria").text(e[i].name);
-              $(".equipt").text(e[i].equipt);
-              $(".suit").text(e[i].suit);
+              $(".aria").text(e.placIntro[i].name);
+              $(".equipt").text(e.placIntro[i].equipt);
+              $(".suit").text(e.placIntro[i].suit);
               return;
             })
           }
