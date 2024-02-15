@@ -82,7 +82,6 @@ body{
 }
 .pass .row{
     display: inline-block;
-    width:350px;
     margin-bottom:50px ;
 }
 .pass .image {
